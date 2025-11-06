@@ -1,0 +1,45 @@
+/* 7.4b_Crear una función que calcule el cubo de un número real (float). El resultado deberá
+        ser otro número real. Probar esta función para calcular el cubo de 3.2 y el de 5. */
+#include <iostream>
+
+using namespace std;
+
+float cubica(float numero) {
+    return numero * numero * numero;
+}
+
+int main() {
+    float numero;
+    float cubo;
+    int i = 0;
+
+    cout << "\nEscriba un numero real (o un valor menor a -1000000 para salir): ";
+    
+    if (!(cin >> numero)) {
+        // En caso de que la entrada falle antes del bucle
+        return 0; 
+    }
+    
+    // El bucle continúa mientras el número no sea demasiado pequeño.
+   
+while (numero >= -1000000) {
+        
+        cubo = cubica(numero);
+
+        cout << numero << " elevado al cubo es " << cubo << endl;
+        
+        i++; 
+
+        cout << "\nEscriba otro numero real (o un valor menor a -1000000 para salir): ";
+        
+        if (!(cin >> numero)) {
+            
+// Manejo básico de error de entrada (por si ingresa texto)
+             break; 
+        }
+    }
+
+    cout << "\nPrograma finalizado." << endl;
+
+    return 0;
+}
