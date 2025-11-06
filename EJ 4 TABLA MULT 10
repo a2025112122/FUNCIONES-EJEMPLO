@@ -1,0 +1,29 @@
+/* 7.6b_Crear una función “escribirTablaMultiplicar”, que reciba como parámetro un número entero, y escriba
+   la tabla de multiplicar de ese número (por ejemplo, para el 3 deberá llegar desde 3x0=0 hasta 3x10=30). */
+#include <iostream>
+
+using namespace std;
+
+void escribirTablaMultiplicar (int numero) {
+   
+    for (int i = 1; i <= 10; i++) {
+        
+        cout << numero << " x " << i << " = " << numero * i << endl;
+    }
+    
+    // En una función void, el 'return;' al final es opcional y generalmente se omite.
+}
+
+int main() {
+    int num;
+    cout << "Escriba un numero entero: ";
+    if (!(cin >> num)) {
+        cerr << "Error: Entrada no válida." << endl;
+        return 1; // Retorna un código de error si la lectura falla
+    }
+    
+    cout << "--- Tabla del " << num << " ---" << endl;
+    escribirTablaMultiplicar(num);
+    
+    return 0;
+}
