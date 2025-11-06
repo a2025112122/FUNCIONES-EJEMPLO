@@ -1,0 +1,39 @@
+/*7.7e_Crear una función que reciba un número cualquiera y que devuelva como resultado la suma
+       de sus dígitos. Por ejemplo, si el número fuera 123 la suma sería 6. */
+#include <iostream>
+
+using namespace std;
+
+int sumaDeSusCifras (int numero) {
+    int n = abs(numero); 
+     int suma = 0;
+    
+                              // El bucle 'do-while' es ideal aquí: se ejecuta al menos una vez (incluso para n=0)
+                              // y continúa mientras queden dígitos por procesar.
+    do {
+                              // Obtenemos la última cifra (Módulo 10)
+        suma += n % 10;
+        
+                              // Eliminamos la última cifra (División entera por 10)
+        n /= 10;
+        
+    } while (n > 0);
+    
+    return suma;
+} 
+
+int main() {
+    int num;
+    
+    cout << "Escriba un numero entero positivo: ";
+    
+    if (!(cin >> num)) {
+        cerr << "Error: Entrada no válida." << endl;
+        return 1; 
+    }
+    
+    cout << "La suma de las cifras del numero " << num 
+         << " es: " << sumaDeSusCifras(num) << endl;
+    
+    return 0;
+}
