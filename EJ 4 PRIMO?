@@ -1,0 +1,48 @@
+/* 7.6c_Crear una función “esPrimo”, que reciba un número y devuelva el valor 1 si es un número
+        primo o 0 en caso contrario.  */
+#include <iostream>
+#include <cmath> 
+
+using namespace std;
+
+                               //(bool): La función esPrimo ahora devuelve bool (true o false),
+bool esPrimo (int n) {
+    // 1 no es primo (por definición moderna, aunque tu código original lo considera primo)
+    if (n <= 1) { 
+        return false;
+    }
+
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0) {
+            return false;
+        }
+    }
+    
+    return true; 
+}
+
+int main() {
+    int num = 1; 
+    
+    while (num != 0){
+        
+        cout << "\nEscriba un numero entero (0 para salir): ";
+        
+        if (!(cin >> num)) {
+            cerr << "Error: Entrada no válida." << endl;
+            break; 
+        }
+
+        if (num != 0) {
+                                                  // Llamamos a la función y usamos boolalpha para imprimir 'true' o 'false'
+                                                  // En caso contrario, imprimiría 1 o 0.
+            cout << "Resultado (1=Primo, 0=No Primo): " << esPrimo(num) << endl;
+            
+                                                  // Si quieres ver 'true' o 'false', puedes usar:
+                                                  // cout << "Es primo? " << boolalpha << esPrimo(num) << endl;
+        }
+    }
+    
+    cout << "\nPrograma finalizado." << endl;
+    return 0;
+}
