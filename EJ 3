@@ -1,0 +1,33 @@
+/*7.5b_Crear una función que reciba un número y muestre en pantalla el perímetro y la superficie de un
+   cuadrado que tenga como lado el número que se ha indicado como parámetro. */
+
+
+#include <iostream>
+
+using namespace std;
+
+float perimetro(float lado) {
+    return 4.0f * lado;
+}
+
+float area(float lado) { 
+    return lado * lado;
+}
+ 
+int main() {
+   
+    float lado; 
+    
+    cout << "Escriba la longitud del lado de un cuadrado: ";
+    
+   
+    if (!(cin >> lado)) {
+        cerr << "Error: Entrada no válida." << endl;
+        return 1; 
+    }
+    
+    cout << "Perimetro: " << perimetro(lado) << endl;
+    cout << "Area: " << area(lado) << endl;
+    
+    return 0;
+}
